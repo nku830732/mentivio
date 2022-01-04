@@ -1,5 +1,3 @@
-from django.http import request
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render,HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -10,10 +8,9 @@ from home.models import Contact, Newslatter_Subscriber
 def home(request):
     return render(request,'EduGuider/index.html' )
 def about(request):
-       
-       return render(request,'EduGuider/about-1.html' )
+    return render(request,'EduGuider/about-1.html' )
 def faqs(request):
-       return render(request,'EduGuider/faq-1.html' )
+    return render(request,'EduGuider/faq-1.html' )
 def contact(request):
     
     if request.method=="POST":
