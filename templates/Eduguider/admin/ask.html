@@ -51,9 +51,9 @@
 	<link rel="stylesheet" type="text/css" href='{% static "dash/assets/css/style.css"%}'>
 	<link rel="stylesheet" type="text/css" href='{% static "dash/assets/css/dashboard.css"%}'>
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "dash/assets/css/color/color-1.css"%}'>
-	
-</head>
-<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+</head>	
+	{% endblock %}
+	{% block body %}
 	
 
 	
@@ -136,7 +136,4 @@
 	   $('input[type="file"]').imageuploadify();
     });
 </script>
-</body>
-
-<!-- Mirrored from Mentivio.themetrades.com/demo/admin/mailbox-compose.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:11:45 GMT -->
-</html>
+{% endblock %}
