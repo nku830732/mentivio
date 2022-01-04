@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-y+_l=!!ba7a&5!dz8&kj-eahtpqv442yat4=q$x-=(y$c6sp4%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["mentivoproject.herokuapp.com","127.0.0.1"]
+ALLOWED_HOSTS = ["mentivio.herokuapp.com","127.0.0.1"]
 
 
 # Application definition
@@ -137,7 +137,7 @@ USE_TZ = True
 STATIC_ROOT= BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
-    BASE_DIR / 'STATIC'
+    BASE_DIR / 'static'
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
