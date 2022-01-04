@@ -1,0 +1,197 @@
+{% extends 'base.html'%}
+{%load static%}
+{% block head %}
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="Mentivio : Education HTML Template" />
+	
+	<!-- OG -->
+	<meta proption_erty="og:title" content="Mentivio : Education HTML Template" />
+	<meta proption_erty="og:description" content="Mentivio : Education HTML Template" />
+	<meta proption_erty="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href='{% static "assets/images/favicon.ico"%}' type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Mentivio : Education HTML Template </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src='{% static "assets/js/html5shiv.min.js"></script>
+	<script src='{% static "assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/assets.css"%}'>
+	
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/typography.css"%}'>
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/shortcodes/shortcodes.css"%}'>
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/style.css"%}'>
+	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
+	
+</head>
+{% endblock %}
+{% block body %}
+<body id="bg">
+<div class="page-wraper">
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">{{quiz.name}}</h1>
+					
+				</div>
+            </div>
+        </div>
+		<div class="container">
+			<h1>Your core card</h1>
+			<h5>score:{{score}}</h5>
+			<h5>time: {{time}}</h5>
+			<h5>correct_questions : {{correct}}</h5>
+			<h5>wrong : {{wrong}}</h5>
+			<h5>percent : {{percent}}</h5>
+			<h5>total : {{total}}</h5>
+		</div><hr>
+		<div class="container">
+			<h5>Solutions</h5>
+			{% for que in quesitions %}
+             <h8>{{que.quesition}}</h8>
+			 <p>{{que.correct}}</p>
+			 <p>{{que.solution}}</p>
+			{%endfor%}
+		</div>
+        
+		
+		
+		
+		
+		<!-- <table id="q-graph">
+			<caption>Quarterly Results</caption>
+			<thead>
+			<tr>
+			<th></th>
+			<th class="sent">Invoiced</th>
+			<th class="paid">Collected</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="qtr" id="q1">
+			<th scope="row">Q1</th>
+			<td class="sent bar" style="height: 111px;"><p>$18,450.00</p></td>
+			<td class="paid bar" style="height: 99px;"><p>$16,500.00</p></td>
+			</tr>
+			<tr class="qtr" id="q2">
+			<th scope="row">Q2</th>
+			<td class="sent bar" style="height: 206px;"><p>$34,340.72</p></td>
+			<td class="paid bar" style="height: 194px;"><p>$32,340.72</p></td>
+			</tr>
+			<tr class="qtr" id="q3">
+			<th scope="row">Q3</th>
+			<td class="sent bar" style="height: 259px;"><p>$43,145.52</p></td>
+			<td class="paid bar" style="height: 193px;"><p>$32,225.52</p></td>
+			</tr>
+			<tr class="qtr" id="q4">
+			<th scope="row">Q4</th>
+			<td class="sent bar" style="height: 110px;"><p>$18,415.96</p></td>
+			<td class="paid bar" style="height: 195px;"><p>$32,425.00</p></td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<div id="ticks">
+			<div class="tick" style="height: 59px;"><p>$50,000</p></div>
+			<div class="tick" style="height: 59px;"><p>$40,000</p></div>
+			<div class="tick" style="height: 59px;"><p>$30,000</p></div>
+			<div class="tick" style="height: 59px;"><p>$20,000</p></div>
+			<div class="tick" style="height: 59px;"><p>$10,000</p></div>
+			</div> -->
+           <!-- <div class="container">
+			{% for q in quiz.quesition_set.all%}
+			<div class="form-group">
+			  <label for="question">{{q.sr_no}}. {{q.quesition}}</label>
+			</div>
+			<div class="form-check">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios1" value="{{q.option_1}}">
+					<label class="form-check-label" for="gridRadios1">
+						{{q.option_1}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios2" value="{{q.option_2}}">
+					<label class="form-check-label" for="gridRadios2">
+						{{q.option_2}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios1" value="{{q.option_3}}">
+					<label class="form-check-label" for="gridRadios1">
+						{{q.option_3}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios2" value="{{q.option_4}}">
+					<label class="form-check-label" for="gridRadios2">
+						{{q.option_4}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios2" value="{{q.option_4}}">
+					<label class="form-check-label" for="gridRadios2">
+						{{q.correct}}
+					</label>
+				</div>
+				<div class="container">
+					{{q.solution}}
+				</div>
+				<br>
+			</div>    
+			{% endfor %}
+			<br>
+		
+		</div> -->
+    <!-- Content END-->
+    <!-- scroll toption_ button -->
+    <button class="back-to-toption_ fa fa-chevron-up" ></button>
+
+</div>
+{% endblock %}
+{% block js%}
+
+<!-- External JavaScripts -->
+<script src='{% static "assets/js/jquery.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap/js/poption_per.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap/js/bootstrap.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}'></script>
+<script src='{% static "assets/vendors/magnific-poption_up/magnific-poption_up.js"%}'></script>
+<script src='{% static "assets/vendors/counter/waypoints-min.js"%}'></script>
+<script src='{% static "assets/vendors/counter/counterup.min.js"%}'></script>
+<script src='{% static "assets/vendors/imagesloaded/imagesloaded.js"%}'></script>
+<script src='{% static "assets/vendors/masonry/masonry.js"%}'></script>
+<script src='{% static "assets/vendors/masonry/filter.js"%}'></script>
+<script src='{% static "assets/vendors/owl-carousel/owl.carousel.js"%}'></script>
+<script src='{% static "assets/js/functions.js"%}'></script>
+<script src='{% static "assets/js/contact.js"%}'></script>
+
+{% endblock %}

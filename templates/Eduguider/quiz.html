@@ -1,0 +1,149 @@
+{% extends 'base.html'%}
+{%load static%}
+{% block head %}
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="Mentivio : Education HTML Template" />
+	
+	<!-- OG -->
+	<meta proption_erty="og:title" content="Mentivio : Education HTML Template" />
+	<meta proption_erty="og:description" content="Mentivio : Education HTML Template" />
+	<meta proption_erty="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href='{% static "assets/images/favicon.ico"%}' type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Mentivio : Education HTML Template </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src='{% static "assets/js/html5shiv.min.js"></script>
+	<script src='{% static "assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/assets.css"%}'>
+	
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/typography.css"%}'>
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/shortcodes/shortcodes.css"%}'>
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href='{% static "assets/css/style.css"%}'>
+	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
+	
+</head>
+{% endblock %}
+
+{% block body %}
+
+<body id="bg">
+<div class="page-wraper">
+	<div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">{{quiz.name}}</h1>
+					
+				</div>
+            </div>
+        </div>
+		
+		
+		
+<div class="container">	
+        <form method='post' action=''>
+			{% csrf_token %}
+			{% for q in quiz.quesition_set.all%}
+			<div class="form-group">
+			  <label for="question">{{q.sr_no}}. {{q.quesition}}</label>
+			</div>
+			<div class="form-check">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios1" value="{{q.option_1}}" checked>
+					<label class="form-check-label" for="gridRadios1">
+						{{q.option_1}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios2" value="{{q.option_2}}">
+					<label class="form-check-label" for="gridRadios2">
+						{{q.option_2}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios1" value="{{q.option_3}}">
+					<label class="form-check-label" for="gridRadios1">
+						{{q.option_3}}
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="{{q.quesition}}" id="gridRadios2" value="{{q.option_4}}">
+					<label class="form-check-label" for="gridRadios2">
+						{{q.option_4}}
+					</label>
+				</div>
+				<br>
+			</div>    
+			{% endfor %}
+			<input id='timer' type='hidden' name="timer" value="">
+			<br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		  </form> 
+		</div>
+    <!-- Content END-->
+    <!-- scroll toption_ button -->
+    <button class="back-to-toption_ fa fa-chevron-up" ></button>
+
+</div>
+{% endblock %}
+{% block js%}
+<script>
+
+	console.log('hello world')
+	const timer=document.getElementById('displaytimer')
+	console.log(timer.textContent)
+	const inputtag = document.getElementById('timer')
+
+	t=0
+	setInterval(()=>{
+		t+=1
+		timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
+		inputtag.value = t
+	},1000)
+</script>
+<!-- External JavaScripts -->
+<script src='{% static "assets/js/jquery.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap/js/poption_per.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap/js/bootstrap.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}'></script>
+<script src='{% static "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}'></script>
+<script src='{% static "assets/vendors/magnific-poption_up/magnific-poption_up.js"%}'></script>
+<script src='{% static "assets/vendors/counter/waypoints-min.js"%}'></script>
+<script src='{% static "assets/vendors/counter/counterup.min.js"%}'></script>
+<script src='{% static "assets/vendors/imagesloaded/imagesloaded.js"%}'></script>
+<script src='{% static "assets/vendors/masonry/masonry.js"%}'></script>
+<script src='{% static "assets/vendors/masonry/filter.js"%}'></script>
+<script src='{% static "assets/vendors/owl-carousel/owl.carousel.js"%}'></script>
+<script src='{% static "assets/js/functions.js"%}'></script>
+<script src='{% static "assets/js/contact.js"%}'></script>
+
+{% endblock %}
