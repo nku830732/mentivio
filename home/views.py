@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render,HttpResponse
+from django.http import request
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request): 
-     return render(request,'EduGuider/error-404.html')
+    return render(request,'EduGuider/error-404.html')
 def about(request):   
     return render(request,'EduGuider/about-1.html' )
 def faqs(request):
