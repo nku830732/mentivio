@@ -52,10 +52,8 @@
 </head>
 {% endblock %}
 {% block body %}
-
-
-
-
+<body id="bg">
+	<div class="page-wraper">
 		<!-- Content -->
 		<div class="page-content bg-white">
 			<!-- inner page banner -->
@@ -186,7 +184,8 @@
 
 		</div>
 		<!-- Content END-->
-
+	<button class="back-to-top fa fa-chevron-up" ></button>
+</div>
 	{% endblock %}
 	{% block js%}
 {% if order is not None %}
