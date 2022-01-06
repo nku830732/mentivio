@@ -1,6 +1,5 @@
-from django.http import HttpResponse
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render,HttpResponse
+from django.http import request
 from course.models import Course,Video,UserCourse,Payment
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -24,7 +23,6 @@ def course(request,slug):
     course = Course.objects.get(slug  = slug)
     serial_number  = request.GET.get('lecture')
     videos = course.video_set.all().order_by("serial_number")
-
     if serial_number is None:
         serial_number = 1 
 

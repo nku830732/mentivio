@@ -1,6 +1,5 @@
-{% extends 'base.html'%}
-{%load static%}
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
 	<!-- META ============================================= -->
@@ -48,8 +47,7 @@
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
 	
 </head>
-{% endblock %}
-{% block body %}
+
 <body id="bg">
 <div class="page-wraper">
 	<div id="loading-icon-bx"></div>
@@ -73,8 +71,6 @@
 		</div>
 	</div>
 </div>
-{% endblock %}
-{% block js%}
 <!-- External JavaScripts -->
 <script src='{% static "assets/js/jquery.min.js"%}'></script>
 <script src='{% static "assets/vendors/bootstrap/js/popper.min.js"%}'></script>
@@ -91,4 +87,5 @@
 <script src='{% static "assets/js/functions.js"%}'></script>
 <script src='{% static "assets/js/contact.js"%}'></script>
 
-{% endblock %}
+</body>
+</html>

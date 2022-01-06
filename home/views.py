@@ -1,5 +1,3 @@
-from django.http import request
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render,HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -7,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request): 
-     return render(request,'EduGuider/admin/indexsecond.html')
+     return render(request,'EduGuider/index.html')
 def about(request):   
     return render(request,'EduGuider/about-1.html' )
 def faqs(request):
@@ -30,7 +28,7 @@ def contact(request):
        
     return render(request, 'EduGuider/contact-1.html') 
 def membership(request):
-       return render(request,'EduGuider/membership.html')
+    return render(request,'EduGuider/membership.html')
 # def login(request):
        
 #        return render(request,'EduGuider/login.html')
@@ -83,10 +81,6 @@ def handleLogin(request):
     return render(request,'account/login.html') 
   else:
     return redirect('/dashboard/profile')   
-            
-            
-
-       
 
 def success(request): 
     return redirect('home')

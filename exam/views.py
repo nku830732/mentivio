@@ -1,5 +1,4 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 # from blog.views import strategies
 from exam.models import Exam,  Category
 from course.models import Guider,Subject,Chapter,Quesions,Topic
@@ -7,28 +6,16 @@ from django.contrib import messages
 from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def exams(request):
-       if request.method=="POST":
-              email_subscriber= request.POST['email_subscriber']
-              print('email_subscriber')
-              Newslatter = Newslatter_Subscriber(email_subscriber=email_subscriber)
-              Newslatter.save()
-              messages.success(request, "Subscribed")
        allexams = Exam.objects.all()
        allcats = Category.objects.all()
        print(allexams, allcats) 
-       context = {'allexams': allexams, 'allcats': allcats}
+       context = {
+              'allexams': allexams,
+               'allcats': allcats
+       }
        return render(request,'EduGuider/exams.html', context)
-
 def examdetails(request, slug_exam):
-       if request.method=="POST":
-              email_subscriber= request.POST['email_subscriber']
-              print('email_subscriber')
-              Newslatter = Newslatter_Subscriber(email_subscriber=email_subscriber)
-              Newslatter.save()
-              messages.success(request, "Subscribed")
-       # return render(request,'EduGuider/membership.html')
        exam = Exam.objects.filter(slug_exam=slug_exam).first() 
-       # allStrategy = Strategy.objects.filter(exam_qualified=exam)
        allexam = Exam.objects.all()
        context = {'exam' : exam, 'allexam': allexam}
        return render(request, 'EduGuider/courses-details.html', context)
