@@ -8,7 +8,7 @@ from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request):
        
-    return render(request,'EduGuider/solution_page.html' )
+    return render(request,'EduGuider/index.html' )
 def about(request):
        
     return render(request,'EduGuider/about-1.html' )
