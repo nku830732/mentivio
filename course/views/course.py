@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from django.http.response import HttpResponse
 from django.shortcuts import redirect, render,HttpResponse
 from course.models import Course,Video,UserCourse,Payment
 from django.views.decorators.csrf import csrf_exempt
