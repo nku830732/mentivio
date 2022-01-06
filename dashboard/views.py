@@ -10,7 +10,7 @@ from django.contrib import messages
 
 
 @login_required
-def dashboard(request):
+def index(request):
     return render(request,'EduGuider/index.html' )
 @login_required
 def dashboard(request):
