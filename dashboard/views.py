@@ -9,9 +9,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-@login_required
-def index(request):
-    return render(request,'EduGuider/index.html' )
+# @login_required
+# def index(request):
+#     return render(request,'EduGuider/index.html' )
 @login_required
 def dashboard(request):
     user= request.user

@@ -7,8 +7,11 @@ from django.contrib.auth import authenticate, login, logout
 from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request):
-       
-    return render(request,'EduGuider/admin/index.html' )
+    user = request.user
+    context = {
+        'user': user
+    }   
+    return render(request,'EduGuider/admin/index.html', context)
 def about(request):
        
     return render(request,'EduGuider/about-1.html' )
