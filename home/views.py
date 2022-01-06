@@ -8,12 +8,12 @@ from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request):
        
-       return render(request,'EduGuider/index.html' )
+    return render(request,'EduGuider/index.html' )
 def about(request):
        
-       return render(request,'EduGuider/about-1.html' )
+    return render(request,'EduGuider/about-1.html' )
 def faqs(request):
-       return render(request,'EduGuider/faq-1.html' )
+    return render(request,'EduGuider/faq-1.html' )
 def contact(request):
     
     if request.method=="POST":
@@ -23,7 +23,7 @@ def contact(request):
       content = request.POST['content']
       print('name','email','phone','content')
       if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
-          messages.error(request,"Please fill the form correctly")
+        messages.error(request,"Please fill the form correctly")
       else:    
        contact = Contact(name=name, email=email, phone=phone, content=content)
        contact.save()
@@ -84,11 +84,11 @@ def handleLogin(request):
             messages.error(request,'try again')
     return render(request,'account/login.html') 
   else:
-      return redirect('/dashboard/profile')   
+    return redirect('/dashboard/profile')   
             
             
 
        
 
 def success(request): 
-       return redirect('home')
+    return redirect('home')

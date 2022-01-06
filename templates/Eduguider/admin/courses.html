@@ -97,7 +97,7 @@
 
 											{% if course.course.active is True %}
 											<li class="card-courses-stats">
-												<a href="#" class="btn button-sm green radius-xl">Acitve</a>
+												<a href="/courses/" class="btn button-sm green radius-xl">Acitve</a>
 											</li>
 											{% endif %}
 										</ul>
@@ -108,7 +108,7 @@
 											<p>{{course.course.description}}</p>
 										</div>
 										<div class="col-md-12">
-											<a href="#" class="btn green radius-xl outline">Start Learning</a>
+											<a href="/courses/course_page/{{course.slug}}" class="btn green radius-xl outline">Start Learning</a>
 										</div>
 									</div>
 
@@ -172,7 +172,7 @@
 										<p>{{recommendedcourse.description}}</p>
 									</div>
 									<div class="col-md-12">
-										<a href="#" class="btn green radius-xl outline">Enroll Now</a>
+										<a href="/courses/checkout/{{course.slug}}" class="btn green radius-xl outline">Enroll Now</a>
 									</div>
 								</div>
 
