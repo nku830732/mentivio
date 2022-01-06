@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def home(request): 
-     return render(request,'EduGuider/index.html')
+     return render(request,'EduGuider/error-404.html')
 def about(request):   
     return render(request,'EduGuider/about-1.html' )
 def faqs(request):
