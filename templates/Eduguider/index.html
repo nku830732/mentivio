@@ -30,10 +30,7 @@
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<!--[if lt IE 9]>
-	<script src='{% static "assets/js/html5shiv.min.js"></script>
-	<script src='{% static "assets/js/respond.min.js"></script>
-	<![endif]-->
+	
 	
 	<!-- All PLUGINS CSS ============================================= --> 
 	<link rel="stylesheet" type="text/css" href='{% static "assets/css/assets.css" %}'>
@@ -903,8 +900,8 @@
         </div>
 		<!-- contact area END -->
     </div>
-	{% endblock %}
-	{%block js%}
+{% endblock %}
+{%block js%}
     <!-- Content END-->
 	<!-- Footer ==== -->
  <!-- External JavaScripts -->
@@ -922,11 +919,8 @@
 <script src='{% static "assets/vendors/owl-carousel/owl.carousel.js" %}'></script>
 <script src='{% static "assets/js/functions.js" %}'></script>
 <script src='{% static "assets/js/contact.js" %}'></script>
-<script src='assets/vendors/switcher/switcher.js' %}'></script>
-<!-- Revolution JavaScripts Files -->
 <script src='{% static "assets/vendors/revolution/js/jquery.themepunch.tools.min.js" %}'></script>
 <script src='{% static "assets/vendors/revolution/js/jquery.themepunch.revolution.min.js" %}'></script>
-<!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
 <script src='{% static "assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js" %}'></script>
 <script src='{% static "assets/vendors/revolution/js/extensions/revolution.extension.carousel.min.js" %}'></script>
 <script src='{% static "assets/vendors/revolution/js/extensions/revolution.extension.kenburn.min.js" %}'></script>
