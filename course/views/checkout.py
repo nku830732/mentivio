@@ -22,6 +22,7 @@ def checkout(request, slug):
     try:
         user_course = UserCourse.objects.get(user=user, course=course)
         error = "You are Already Enrolled in this Course"
+        return redirect
     except:
         pass
     amount = None

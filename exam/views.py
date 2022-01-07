@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
+from django.http import request
 # from blog.views import strategies
 from exam.models import Exam,  Category
 from course.models import Guider,Subject,Chapter,Quesions,Topic
