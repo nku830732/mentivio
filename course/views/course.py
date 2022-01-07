@@ -37,7 +37,7 @@ def course(request,slug):
             try:
                 user_course = UserCourse.objects.get(user = user  , course = course)
             except:
-                return redirect("check-out" , slug=course.slug)
+                return redirect(f"/courses/checkout/{course.slug}")
         
         
     context = {
