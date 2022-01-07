@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'Eduguider/base.html'%}
 {% load course_custom_tags %}
 {%load static%}
 {% block head %}
@@ -52,16 +52,15 @@
 </head>
 {% endblock %}
 {% block body %}
-
-
-
+<body id="bg">
+	<div class="page-wraper">
 		<!-- Content -->
 		<div class="page-content bg-white">
 			<!-- inner page banner -->
 			<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
 				<div class="container">
 					<div class="page-banner-entry">
-						<h1 class="text-white">{{course.name}}</h1>
+						<h1 class="text-white">{{course.title}}</h1>
 					</div>
 				</div>
 			</div>
@@ -187,7 +186,8 @@
 
 		</div>
 		<!-- Content END-->
-
+		<button class="back-to-top fa fa-chevron-up" ></button>
+	</div>
 	{% endblock %}
 	{% block js%}
 {% if order is not None %}
@@ -199,7 +199,7 @@
     var options = {
         "key": "rzp_test_ANsgw5z3vv4Fr2", // Enter the Key ID generated from the Dashboard
         "name": "EduGuider",
-        "description": "Payment For {{course.name}}",
+        "description": "Payment For {{course.title}}",
         "image": "https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg",
         "order_id": "{{order.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "callback_url": "http://127.0.0.1:8000/verify_paymenttest/",

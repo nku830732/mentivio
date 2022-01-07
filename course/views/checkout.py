@@ -79,6 +79,7 @@ def verifyPayment(request):
             razorpay_order_id = data['razorpay_order_id']
             razorpay_payment_id = data['razorpay_payment_id']
             payment = Payment.objects.get(order_id=razorpay_order_id)
+            
             payment.payment_id = razorpay_payment_id
             payment.status = True
             userCourse = UserCourse(user=payment.user, course=payment.course)

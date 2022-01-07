@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'Eduguider/base.html'%}
 {%load static%}
 {% block head %}
 
@@ -51,7 +51,8 @@
 </head>
 {% endblock %}
 {% block body %}
-
+<body id="bg">
+	<div class="page-wraper">
 
 
         <!-- Content -->
@@ -238,7 +239,8 @@
             <!-- contact area END -->
         </div>
         <!-- Content END-->
-
+        <button class="back-to-top fa fa-chevron-up" ></button>
+    </div>
       
     {% endblock %}
     {% block js%}
