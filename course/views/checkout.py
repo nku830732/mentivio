@@ -32,7 +32,7 @@ def checkout(request, slug):
     if amount == 0:
         userCourse = UserCourse(user=user, course=course)
         userCourse.save()
-        return redirect('my-courses')
+        return redirect('/dashboard/usercourses')
         # enroll direct
     if action == 'create_payment':
 
@@ -88,7 +88,7 @@ def verifyPayment(request):
             payment.user_course = userCourse
             payment.save()
             messages.success(request, 'Payment Successful, You are enrolled')
-            return redirect('home')
+            return redirect('/dashboard/usercourses')
 
         except:
             return HttpResponse("Invalid Payment Details")
