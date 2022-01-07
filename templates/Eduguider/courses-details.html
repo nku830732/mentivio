@@ -25,7 +25,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
 
 	<!-- PAGE TITLE HERE ============================================= -->
-	<title>ExamGuider: {{exam.name}} </title>
+	<title>Mentivio: {{exam.name}} </title>
 
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +51,8 @@
 </head>
 {% endblock %}
 {% block body %}
-		<!-- Content -->
+<body id="bg">
+	<div class="page-wraper">		
 		<div class="page-content bg-white">
 			<!-- inner page banner -->
 			<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
@@ -172,7 +173,9 @@
 			<!-- contact area END -->
 
 		</div>
-		<!-- Content END-->		
+		<!-- Content END-->	
+		<button class="back-to-top fa fa-chevron-up" ></button>
+</div>	
 	{% endblock %}
 	{% block js%}
 	<!-- External JavaScripts -->
