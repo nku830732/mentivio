@@ -24,7 +24,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
-	<title>Mentivio User Course </title>
+	<title>{{chapter.name}}</title>
 	
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,16 +75,16 @@
 							<!-- blog start -->
 							<div class="recent-news blog-lg">
 								<div class="action-box blog-lg">
-									<img src='{{post.image.url}}' alt="">
+									<img src="" alt="">
 								</div>
 								<div class="info-bx">
 									<ul class="media-post">
-										<li><a href="#"><i class="fa fa-calendar"></i>{{Post.suggested_by}}</a></li>
-										<li><a href="#"><i class="fa fa-calendar"></i>{{Post.exam_to_qualify}}</a></li>
+										<!-- <li><a href="#"><i class="fa fa-calendar"></i>{{Post.suggested_by}}</a></li> -->
+										<!-- <li><a href="#"><i class="fa fa-calendar"></i>{{Post.exam_to_qualify}}</a></li> -->
 										
 									</ul>
-									<h5 class="post-title"><a href="#">{{Post.name}}</a></h5>
-									<span>{{Post.desc}}</span>
+									<!-- <h5 class="post-title"><a href="#">{{Post.name}}</a></h5> -->
+									<!-- <span>{{Post.desc}}</span> -->
 									<div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
 									<div class="widget_tag_cloud">
 										<h6>TAGS</h6>

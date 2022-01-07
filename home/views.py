@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from home.models import Contact, Newslatter_Subscriber
+from dashboard.models import UserProfile
 # Create your views here.
 def home(request): 
     return render(request,'EduGuider/index.html')
@@ -56,6 +57,7 @@ def handleSignup(request):
         myuser.first_name=First_name
         myuser.last_name = Last_name
         myuser.save()
+        
         messages.success(request, "Your account has been created successfully")
         return redirect("login")
     else:

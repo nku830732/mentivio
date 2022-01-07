@@ -12,4 +12,5 @@ class UserProfile(models.Model):
     state =  models.CharField(max_length=50, blank=True)
     city = models.CharField(max_length=60, blank=True)
     town_or_village = models.CharField(max_length=90, blank=True)
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)           
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING) 
+# class Educator              

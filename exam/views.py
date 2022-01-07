@@ -48,14 +48,8 @@ def notes(request, slug_exam):
        return render(request, 'EduGuider/notesList.html', context)
 def chapter(request, slug_chapter):
        allquesitions=[]
-       chapter = Chapter.objects.filter(slug_chapter=slug_chapter).first()
-       topics = Topic.objects.filter(chapter_name=chapter)
-       for top in topics:
-              quesition=Quesions.objects.filter()
-              n = len(quesition)
-              nQuesitions=n
-              allquesitions.append([quesition, range(1, nQuesitions), nQuesitions])      
-       context = {'chapter':chapter, 'topics':topics, 'allquesitions':allquesitions} 
+       chapter = Chapter.objects.filter(slug_chapter=slug_chapter).first()    
+       context = {'chapter':chapter} 
        return render(request, 'EduGuider/notes.html', context) 
 def quiz(request):
         return render(request, 'EduGuider/quiz.html')

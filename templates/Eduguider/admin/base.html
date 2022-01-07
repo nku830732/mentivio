@@ -5,14 +5,7 @@
 {% endblock %}
 
 <body class="ttr-opened-sidebar ttr-pinned-sidebar">
-	{% for message in messages %}
-<div class="alert alert-warning alert-dismissible dark show" role="alert">
-	<strong>{{message}} </strong><b>...Thanks for visiting</b>
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	  <span aria-hidden="true">&times;</span>
-	</button>
-  </div>
-{%endfor%}
+	
 	<!-- header start -->
 	<header class="ttr-header">
 		<div class="ttr-header-wrapper">
@@ -290,6 +283,14 @@
 		</div>
 	</div>
 	<!-- Left sidebar menu end -->
+	{% for message in messages %}
+<div class="alert alert-warning alert-dismissible dark show" role="alert">
+	<strong>{{message}} </strong><b>...Thanks for visiting</b>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	  <span aria-hidden="true">&times;</span>
+	</button>
+  </div>
+{%endfor%}
 {% block body %}
 {% endblock %}    
 </body>
