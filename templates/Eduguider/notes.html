@@ -77,14 +77,15 @@
 								<div class="action-box blog-lg">
 									<img src="" alt="">
 								</div>
+								{% for Post in chapter.topic_set.all%}
 								<div class="info-bx">
 									<ul class="media-post">
-										<!-- <li><a href="#"><i class="fa fa-calendar"></i>{{Post.suggested_by}}</a></li> -->
-										<!-- <li><a href="#"><i class="fa fa-calendar"></i>{{Post.exam_to_qualify}}</a></li> -->
+										<li><a href="#"><i class="fa fa-calendar"></i>{{chapter.designed_by.name}}</a></li>
+										<li><a href="#"><i class="fa fa-calendar"></i>{{chapter.exam_to_qualify}}</a></li>
 										
 									</ul>
-									<!-- <h5 class="post-title"><a href="#">{{Post.name}}</a></h5> -->
-									<!-- <span>{{Post.desc}}</span> -->
+									<h5 class="post-title"><a href="#">{{Post.name}}</a></h5>
+									<span>{{Post.notes}}</span>
 									<div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
 									<div class="widget_tag_cloud">
 										<h6>TAGS</h6>
@@ -119,6 +120,7 @@
 										</ul>
 									<div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
 								</div>
+								{%endfor%}
 							</div>
 							<div class="clear" id="comment-list">
 								<div class="comments-area" id="comments">

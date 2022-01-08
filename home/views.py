@@ -14,19 +14,16 @@ def faqs(request):
     return render(request,'EduGuider/faq-1.html' )
 def contact(request):
     if request.method=="POST":
-      name= request.POST['name']
-      email= request.POST['email']
-      phone= request.POST['phone']
-      content = request.POST['content']
-      print('name','email','phone','content')
-      if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
-        messages.error(request,"Please fill the form correctly")
-      else:    
-       contact = Contact(name=name, email=email, phone=phone, content=content)
-       contact.save()
-       messages.success(request, "You message has been been successfully sent.We will reply as soon as possible.")
-
-       
+        name= request.POST['name']
+        email= request.POST['email']
+        phone= request.POST['phone']
+        content = request.POST['content']
+        if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
+            messages.error(request,"Please fill the form correctly")
+        else:    
+            contact = Contact(name=name, email=email, phone=phone, content=content)
+            contact.save()
+            messages.success(request, "You message has been been successfully sent.We will reply as soon as possible.")   
     return render(request, 'EduGuider/contact-1.html') 
 def membership(request):
     return render(request,'EduGuider/membership.html')
@@ -36,9 +33,8 @@ def membership(request):
 # def register(request):
        
 #        return render(request,'EduGuider/register.html')
-def forgetpass(request):
-       
-       return render(request,'EduGuider/forget-password.html')
+def forgetpass(request):   
+    return render(request,'EduGuider/forget-password.html')
 def handleSignup(request):       
     if request.method == "POST":
         username = request.POST['username']
