@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from course.views import    verifyPayment
+from course.views import verifyPayment
 from testseries.views import verifyPaymenttest
 
 urlpatterns = [

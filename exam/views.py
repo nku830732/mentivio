@@ -14,12 +14,12 @@ def exams(request):
               'allexams': allexams,
                'allcats': allcats
        }
-       return render(request,'EduGuider/exams.html', context)
+       return render(request,'Eduguider/exams.html', context)
 def examdetails(request, slug_exam):
        exam = Exam.objects.filter(slug_exam=slug_exam).first() 
        allexam = Exam.objects.all()
        context = {'exam' : exam, 'allexam': allexam}
-       return render(request, 'EduGuider/courses-details.html', context)
+       return render(request, 'Eduguider/courses-details.html', context)
 def notes(request, slug_exam):
        if request.method=="POST":
                   name= request.POST['name']
@@ -37,10 +37,10 @@ def notes(request, slug_exam):
        subjects = Subject.objects.filter(exam_name=exam)                        
        context = {'exam':exam,
        }     
-       return render(request, 'EduGuider/notesList.html', context)
+       return render(request, 'Eduguider/notesList.html', context)
 def chapter(request, slug_chapter):
        chapter = Chapter.objects.get(slug_chapter=slug_chapter)    
        context = {'chapter':chapter} 
-       return render(request, 'EduGuider/notes.html', context) 
+       return render(request, 'Eduguider/notes.html', context) 
 def quiz(request):
-        return render(request, 'EduGuider/quiz.html')
+        return render(request, 'Eduguider/quiz.html')

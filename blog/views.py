@@ -11,27 +11,27 @@ def strategies(request):
     ads = blogAds.objects.all()
     print(allstrategies)
     context = {'allstrategies': allstrategies,'ads':ads}
-    return render(request,'EduGuider/strategies.html', context)
+    return render(request,'Eduguider/strategies.html', context)
 def strategiesPost(request, slug):
     
     strategie = Common_strategie.objects.filter(slug=slug).first()
     ads = blogAds.objects.all()
     comments = strategyQuesition.objects.filter(post=strategie)
     context = {'strategie' : strategie,'ads':ads, 'comments':comments}
-    return render(request,'EduGuider/strategydetails.html', context)
+    return render(request,'Eduguider/strategydetails.html', context)
 def opportunities(request):
    
     allopportunities = Career_Oppotunitie.objects.all()
     ads = blogAds.objects.all()
     print(allopportunities)
     context = {'allopportunities' : allopportunities}
-    return render(request,'EduGuider/oppor.html', context)
+    return render(request,'Eduguider/oppor.html', context)
 @login_required
 def opportunitiesPost(request, slug):
     Post = Career_Oppotunitie.objects.filter(slug=slug).first()
     comments = Career_Oppotunitie_Comment.objects.filter(post=Post)
     context = {'Post' : Post,'comments':comments}
-    return render(request,'EduGuider/oppordetails.html', context)
+    return render(request,'Eduguider/oppordetails.html', context)
 @login_required
 def opportunitiesComment(request, slug):
     if request.method =="POST":
