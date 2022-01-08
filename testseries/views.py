@@ -19,7 +19,7 @@ def testserieses(request):
     allexams = QuizCourse.objects.all()
     allcats = Category.objects.all()
     context = {'allexams': allexams, 'allcats': allcats}
-    return render(request, 'EduGuider/testserieses.html', context)
+    return render(request, 'Eduguider/testserieses.html', context)
 
 
 def testseries(request, slug):

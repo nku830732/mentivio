@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView
-from EduGuider.settings import *
+from Eduguider.settings import *
 from time import time
 
 
@@ -18,7 +18,7 @@ def courses(request):
        context = {
               'courses':courses
        }
-       return render(request,'EduGuider/courses.html', context)
+       return render(request,'Eduguider/courses.html', context)
 def course(request,slug):
     course = Course.objects.get(slug  = slug)
     serial_number  = request.GET.get('lecture')
