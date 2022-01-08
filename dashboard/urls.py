@@ -15,5 +15,5 @@ urlpatterns = [
     path('guiders', views.guider, name="guider"),
     path('usernotes/', views.notes, name="notes"),
     path('ask/', views.userdoubt, name="userdoubt"),
-    # path('index/', views.index, name="index"),
+    path('educatorhome/', views.educatorhome, name="educatorhome"),
 ]

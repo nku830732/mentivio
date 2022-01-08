@@ -13,15 +13,11 @@ from time import time
 import razorpay
 client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
 # Create your views here.
-
-
 def testserieses(request):
     allexams = QuizCourse.objects.all()
     allcats = Category.objects.all()
     context = {'allexams': allexams, 'allcats': allcats}
     return render(request, 'Eduguider/testserieses.html', context)
-
-
 def testseries(request, slug):
     testseries = QuizCourse.objects.filter(slug=slug).first()
     tests = Quiz.objects.filter(quiz=testseries)
@@ -30,8 +26,6 @@ def testseries(request, slug):
         'tests': tests
     }
     return render(request, 'Eduguider/testseries.html', context)
-
-
 @login_required(login_url='/accounts/login')
 def testseriescheckout(request, slug):
     course = QuizCourse.objects.get(slug=slug)
@@ -87,8 +81,6 @@ def testseriescheckout(request, slug):
         "error": error
     }
     return render(request, "Eduguider/quizcoursecheckout.html", context)
-
-
 @csrf_exempt
 def verifyPaymenttest(request):
     if request.method == "POST":
@@ -115,8 +107,7 @@ def verifyPaymenttest(request):
 
         except:
             return HttpResponse("Invalid Payment Details")
-
-
+@login_required
 def tests(request, slug):
     exam = Exam.objects.get(slug_exam=slug)
     tests = Quiz.objects.filter(exam=exam)
@@ -125,8 +116,7 @@ def tests(request, slug):
         'tests': tests
     }
     return render(request, "Eduguider/testlist.html", context)
-
-
+@login_required
 def test(request, slug):
     quiz = Quiz.objects.filter(slug=slug).first()
     user = request.user
@@ -182,6 +172,7 @@ def test(request, slug):
     else:
         # messages.error(request, "You message has been been successfully sent.We will reply as soon as possible.")
          return redirect(f'/tests/solution/{quiz.slug}')
+@login_required
 def solution(request, slug):
         quiz = Quiz.objects.get(slug=slug)
         user = request.user
@@ -211,4 +202,4 @@ def solution(request, slug):
         }
         print(context)
         # return redirect('tests')
-        return render(request, "Eduguider/solution_page.html", context)
+        return render(request, "Eduguider/solution_page.html", context)        

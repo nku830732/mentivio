@@ -2,13 +2,12 @@ from django.shortcuts import render,HttpResponse, redirect
 from django.http import request
 from exam.models import UserNew
 from course.models import Chapter, Course, UserCourse, Topic, Guider
+from home.models import Educator
 from testseries.models import Quiz, QuizCourse, UserResponses,UserquizCourse
 from dashboard.models import UserProfile
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
-
 # @login_required
 # def index(request):
 #     return render(request,'EduGuider/index.html' )
@@ -111,3 +110,22 @@ def tests(request):
 @login_required    
 def userdoubt(request):
     return render(request,'Eduguider/admin/ask.html')
+@login_required
+def educatorhome(request):
+    user= request.user
+    educator=Educator.objects.get(user=user)
+    context = {
+        'educator': educator,
+        'user':user
+    }
+    return render(request, "educatorDashboard/index.html", context)
+    
+# @login_required
+# def educatorhome(request):
+#     user= request.user
+#     educator=Educator.objects.get(user=user)
+#     context = {
+#         'educator': educator,
+#         'user':user
+#     }
+#     return render(request, "educatorDashboard/index.html", context)
