@@ -12,7 +12,7 @@ def exams(request):
        print(allexams, allcats) 
        context = {
               'allexams': allexams,
-               'allcats': allcats
+              'allcats': allcats
        }
        return render(request,'EduGuider/exams.html', context)
 def examdetails(request, slug_exam):
@@ -26,29 +26,19 @@ def notes(request, slug_exam):
                   email= request.POST['email']
                   phone= request.POST['phone']
                   content = request.POST['content']
-                  print('name','email','phone','content')
                   if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
-                        messages.error(request,"Please fill the form correctly")
+                     messages.error(request,"Please fill the form correctly")
                   else:    
                     contact = Contact(name=name, email=email, phone=phone, content=content)
                     contact.save()
                     messages.success(request, "You message has been been successfully sent.We will reply as soon as possible.")
-       allChaps=[]
        exam = Exam.objects.filter(slug_exam=slug_exam).first()
-       subjects = Subject.objects.filter(exam_name=exam)
-       # chapters1 = Chapter.objects.filter(exam_name=exam)
-
-       for subject in subjects:
-            chapters = Chapter.objects.filter(subject=subject)
-            n = len(chapters)
-            nChaps = n
-            allChaps.append([chapters, range(1, nChaps), nChaps])                            
-                
-       context = {'exam':exam,'allChaps':allChaps}     
+       subjects = Subject.objects.filter(exam_name=exam)                        
+       context = {'exam':exam,
+       }     
        return render(request, 'EduGuider/notesList.html', context)
 def chapter(request, slug_chapter):
-       allquesitions=[]
-       chapter = Chapter.objects.filter(slug_chapter=slug_chapter).first()    
+       chapter = Chapter.objects.get(slug_chapter=slug_chapter)    
        context = {'chapter':chapter} 
        return render(request, 'EduGuider/notes.html', context) 
 def quiz(request):

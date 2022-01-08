@@ -85,12 +85,20 @@
                                                     data-parent="#faq{{i.0.subject}}">
                                                     {{i.0.subject}}
                                                 </a>
+
                                             </h6>
-                                        </div>   
-                                            <div name="{{k.sr}}" id="faq{{i.0.subject}}"  class="acod-body collapse"> 
+                                            <div name="{{k.sr}}" id="faq{{i.0.subject}}"  class="acod-body"> 
                                                 {%for k in i%} 
                                                 <div class="acod-content">
-                                                    <a href="/exam/notes/{{k.slug_chapter}}">{{k.name}}</a>
+                                                    <a href="/exam/notes/{{k.slug_topic}}">{{k.name}}</a>
+                                                </div>
+                                                 
+                                                {%endfor%}  
+                                        </div>   
+                                            <div name="{{k.sr}}" id="faq{{i.0.subject}}"  class="acod-body"> 
+                                                {%for k in i%} 
+                                                <div class="acod-content">
+                                                    <a href="/exam/notes/{{k.slug_topic}}">{{k.name}}</a>
                                                 </div>
                                                  
                                                 {%endfor%}                                              
