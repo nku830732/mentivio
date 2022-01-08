@@ -12,7 +12,7 @@ def exams(request):
        print(allexams, allcats) 
        context = {
               'allexams': allexams,
-              'allcats': allcats
+               'allcats': allcats
        }
        return render(request,'EduGuider/exams.html', context)
 def examdetails(request, slug_exam):
@@ -26,8 +26,9 @@ def notes(request, slug_exam):
                   email= request.POST['email']
                   phone= request.POST['phone']
                   content = request.POST['content']
+                  
                   if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
-                     messages.error(request,"Please fill the form correctly")
+                        messages.error(request,"Please fill the form correctly")
                   else:    
                     contact = Contact(name=name, email=email, phone=phone, content=content)
                     contact.save()

@@ -7,11 +7,11 @@ from home.models import Contact, Newslatter_Subscriber
 from dashboard.models import UserProfile
 # Create your views here.
 def home(request): 
-    return render(request,'Eduguider/index.html')
+    return render(request,'EduGuider/index.html')
 def about(request):   
-    return render(request,'Eduguider/about-1.html' )
+    return render(request,'EduGuider/about-1.html' )
 def faqs(request):
-    return render(request,'Eduguider/faq-1.html' )
+    return render(request,'EduGuider/faq-1.html' )
 def contact(request):
     if request.method=="POST":
         name= request.POST['name']
@@ -24,9 +24,9 @@ def contact(request):
             contact = Contact(name=name, email=email, phone=phone, content=content)
             contact.save()
             messages.success(request, "You message has been been successfully sent.We will reply as soon as possible.")   
-    return render(request, 'Eduguider/contact.html') 
+    return render(request, 'EduGuider/contact-1.html') 
 def membership(request):
-    return render(request,'Eduguider/membership.html')
+    return render(request,'EduGuider/membership.html')
 # def login(request):
        
 #        return render(request,'EduGuider/login.html')

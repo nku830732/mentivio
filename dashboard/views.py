@@ -92,7 +92,6 @@ def notes(request):
 def guider(request):
     user= request.user
     profile= UserProfile.objects.get(user=user)
-    # print(profile.preparing_for)
     guiders = Guider.objects.all()
     context={
         'guiders':guiders
