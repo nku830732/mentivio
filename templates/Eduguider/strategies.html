@@ -88,7 +88,7 @@
 										<li><a href="#"><i class="fa fa-user"></i>{{strategie.suggested_by}}</a></li>
 									</ul>
 									<h5 class="post-title"><a href="strategies/{{strategie.slug}}">{{strategie.title}}</a></h5>
-									{{strategie.description |truncatechars:120}}
+									{{strategie.description |truncatechars:120|safe}}
 									<div class="post-extra">
 										<a href="strategies/{{strategie.slug}}" class="btn-link">READ MORE</a>
 										<a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>05 Comment</a>

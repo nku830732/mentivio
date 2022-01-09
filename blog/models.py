@@ -1,6 +1,6 @@
-from ckeditor.fields import RichTextField
 from django.db import models
 from django.db.models.deletion import DO_NOTHING
+from ckeditor.fields import RichTextField
 from django.db.models.fields import BLANK_CHOICE_DASH
 from exam.models import Exam
 from django.contrib.auth.models import User
