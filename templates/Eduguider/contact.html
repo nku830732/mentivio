@@ -92,7 +92,7 @@
 							</div>
 						</div>
 						<div class="col-lg-7 col-md-7">
-							<form action="/contact" method="POST">
+							<form action="" method="POST">
 								{% csrf_token %}
 								<div class="heading-bx left">
 									<h2 class="title-head">Get In <span>Touch</span></h2>
@@ -104,7 +104,7 @@
 										<div class="form-group">
 											<div class="input-group">
 												<label for="name" class="form-label">Your Name</label>
-												<input name="name" type="text" class="form-control" id="name">
+												<input name="name" type="text" class="form-control" id="name" required>
 											</div>
 										</div>
 									</div>
@@ -113,7 +113,7 @@
 											<div class="input-group">
 												<label for="email" class="form-label">Email address</label>
 												<input type="email" class="form-control" id="email" name="email"
-													aria-describedby="emailHelp">
+													aria-describedby="emailHelp"required>
 
 											</div>
 										</div>
@@ -123,7 +123,7 @@
 											<div class="input-group">
 												<label for="phone" class="form-label">Phone No.</label>
 												<input type="phone" class="form-control" id="phone" name="phone"
-													aria-describedby="phone">
+													aria-describedby="phone" required>
 											</div>
 										</div>
 									</div>
@@ -133,7 +133,7 @@
 											<div class="input-group">
 												<label for="content" class="form-label">Type Message</label>
 												<textarea name="content" rows="4" class="form-control"
-													id="content"></textarea>
+													id="content" required></textarea>
 											</div>
 										</div>
 									</div>

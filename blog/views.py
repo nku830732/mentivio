@@ -13,26 +13,24 @@ def strategies(request):
     context = {'allstrategies': allstrategies,'ads':ads}
     return render(request,'Eduguider/strategies.html', context)
 def strategiesPost(request, slug):
-    
     strategie = Common_strategie.objects.filter(slug=slug).first()
     ads = blogAds.objects.all()
     comments = strategyQuesition.objects.filter(post=strategie)
     context = {'strategie' : strategie,'ads':ads, 'comments':comments}
     return render(request,'Eduguider/strategydetails.html', context)
 def opportunities(request):
-   
     allopportunities = Career_Oppotunitie.objects.all()
     ads = blogAds.objects.all()
     print(allopportunities)
     context = {'allopportunities' : allopportunities}
     return render(request,'Eduguider/oppor.html', context)
-@login_required
+@login_required(login_url='/accounts/login')
 def opportunitiesPost(request, slug):
     Post = Career_Oppotunitie.objects.filter(slug=slug).first()
     comments = Career_Oppotunitie_Comment.objects.filter(post=Post)
     context = {'Post' : Post,'comments':comments}
     return render(request,'Eduguider/oppordetails.html', context)
-@login_required
+@login_required(login_url='/accounts/login')
 def opportunitiesComment(request, slug):
     if request.method =="POST":
        comment = request.POST.get('comment')
@@ -42,6 +40,7 @@ def opportunitiesComment(request, slug):
        comment.save()
        messages.success(request, "Your comment has been savedsuccessfully")
     return redirect(f'/explore/opportunities/{post.slug}')
+@login_required(login_url='/accounts/login')
 def strategiesPostComment(request, slug):
     if request.method =="POST":
        comment = request.POST.get('comment')

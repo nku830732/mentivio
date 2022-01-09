@@ -20,21 +20,16 @@ def contact(request):
         content = request.POST['content']
         if len(name)<2 or len(email)<8 or len(phone)<10 or len(content)<4:
             messages.error(request,"Please fill the form correctly")
+            return redirect('contact')     
         else:    
             contact = Contact(name=name, email=email, phone=phone, content=content)
             contact.save()
             messages.success(request, "You message has been been successfully sent.We will reply as soon as possible.")
-            return render(request, 'Eduguider/contact.html') 
+            return redirect('contact') 
     else:   
         return render(request, 'Eduguider/contact.html') 
 def membership(request):
     return render(request,'Eduguider/membership.html')
-# def login(request):
-       
-#        return render(request,'Eduguider/login.html')
-# def register(request):
-       
-#        return render(request,'Eduguider/register.html')
 def forgetpass(request):   
     return render(request,'Eduguider/forget-password.html')
 def handleSignup(request):       
@@ -60,8 +55,6 @@ def handleSignup(request):
         return redirect("login")
     else:
        return render(request,'account/signup.html')
-          
-          
 def handleLogin(request):  
   action = request.GET.get('next')  
   print(action)  
@@ -70,17 +63,18 @@ def handleLogin(request):
         loginusername = request.POST['loginusername']
         loginpassword = request.POST['loginpassword']
         user = authenticate(username=loginusername, password=loginpassword)
-        action = request.GET.get('next')  
-        print(action)  
+        next_page = request.GET.get('next')    
         if user is not None:
             login(request, user)
             messages.success(request,"successfully logged in")
-            return redirect('/dashboard/profile')
+            if next_page is not None:
+               return redirect(next_page)
+            else:
+                return redirect('home')   
         else:
             messages.error(request,'try again')
     return render(request,'account/login.html') 
   else:
     return redirect('/dashboard/profile')   
-
 def success(request): 
     return redirect('home')
