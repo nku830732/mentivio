@@ -11,7 +11,7 @@ from django.contrib import messages
 # @login_required
 # def index(request):
 #     return render(request,'EduGuider/index.html' )
-@login_required
+@login_required(login_url='/accounts/login')
 def dashboard(request):
     user= request.user
     usernews = UserNew.objects.filter(user=user)
@@ -20,7 +20,7 @@ def dashboard(request):
         'user':user
     }
     return render(request, "Eduguider/admin/index.html", context)
-@login_required
+@login_required(login_url='/accounts/login')
 def profile(request):
     user= request.user
     if request.method=="POST":
@@ -49,7 +49,7 @@ def profile(request):
            'profile': profile
         } 
         return render(request, "Eduguider/admin/user-profile.html", context)  
-@login_required
+@login_required(login_url='/accounts/login')
 def usercourses(request):
     user=request.user
     usercourses= UserCourse.objects.filter(user=user)
@@ -59,7 +59,7 @@ def usercourses(request):
         'recommendedcourses': recommendedcourses
     }   
     return render(request,'Eduguider/admin/courses.html', context)
-@login_required
+@login_required(login_url='/accounts/login')
 def usertestcourses(request):
     user= request.user
     usercourses = UserquizCourse.objects.filter(user=user)
@@ -69,7 +69,7 @@ def usertestcourses(request):
         'recommendedcourses': recommendedcourses
     } 
     return render(request,'Eduguider/admin/testserieses.html', context)
-@login_required    
+@login_required(login_url='/accounts/login')   
 def userscores(request):
     user= request.user
     usertests = QuizCourse.objects.filter(user=user)
@@ -77,7 +77,7 @@ def userscores(request):
         'usertests' : usertests
     }
     return render(request,'Eduguider/admin/tests.html', context)
-@login_required
+@login_required(login_url='/accounts/login')
 def notes(request):
     user= request.user
     profile= UserProfile.objects.get(user=user)
@@ -87,7 +87,7 @@ def notes(request):
         'notes':notes
     }
     return render(request, "Eduguider/admin/notes.html", context)
-@login_required
+@login_required(login_url='/accounts/login')
 def guider(request):
     user= request.user
     profile= UserProfile.objects.get(user=user)
@@ -96,7 +96,7 @@ def guider(request):
         'guiders':guiders
     }
     return render(request, "Eduguider/admin/guider.html", context)
-@login_required
+@login_required(login_url='/accounts/login')
 def tests(request):
     user= request.user
     quizzes = Quiz.objects.all()
@@ -107,10 +107,10 @@ def tests(request):
         'recommendedcourses': recommendedcourses,
     }
     return render(request,'Eduguider/admin/tests.html', context)
-@login_required    
+@login_required(login_url='/accounts/login')   
 def userdoubt(request):
     return render(request,'Eduguider/admin/ask.html')
-@login_required
+@login_required(login_url='/accounts/login')
 def educatorhome(request):
     user= request.user
     educator=Educator.objects.get(user=user)
