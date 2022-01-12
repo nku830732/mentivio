@@ -70,7 +70,7 @@ def handleLogin(request):
             if next_page is not None:
                return redirect(next_page)
             else:
-                return redirect('home')   
+                return redirect('profile')   
         else:
             messages.error(request,'try again')
     return render(request,'account/login.html') 
