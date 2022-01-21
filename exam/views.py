@@ -1,18 +1,25 @@
+from ast import Not
+from unicodedata import category
 from django.shortcuts import render,HttpResponse,redirect
 from django.http import request
 # from blog.views import strategies
 from exam.models import Exam,  Category
 from course.models import Guider,Subject,Chapter,Quesions,Topic
 from django.contrib import messages
-from home.models import Contact, Newslatter_Subscriber
 # Create your views here.
 def exams(request):
-       allexams = Exam.objects.all()
+       cat=request.GET.get('category')
+       if cat is not None:
+           ex=Category.objects.get(name= cat)   
+           allexams=Exam.objects.filter(category=ex)
+       else:
+          allexams = Exam.objects.all()
        allcats = Category.objects.all()
-       print(allexams, allcats) 
+        
        context = {
               'allexams': allexams,
-               'allcats': allcats
+               'allcats': allcats,
+               'cat':cat
        }
        return render(request,'Eduguider/exams.html', context)
 def examdetails(request, slug_exam):

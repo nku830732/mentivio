@@ -102,9 +102,9 @@
 										<div class="col-md-12">											
 											{% is_attempt request k as attempted%}
 											{%if attempted%}
-											<a href="/tests/attempt/{{k.slug}}" class="btn  red radius-xl outline">View Results</a>
+											<a href="/tests/attempt/{{k.slug}}" target="_blank" class="btn  red radius-xl outline">View Results</a>
 											{% else %}
-											<a href="/tests/attempt/{{k.slug}}" class="btn  green radius-xl outline">Attempt Now</a>
+											<a href="/tests/attempt/{{k.slug}}" target="_blank" class="btn  green radius-xl outline">Attempt Now</a>
 										    {%endif%}
 										</div>
 									</div>
@@ -158,9 +158,9 @@
 										<div class="col-md-12">
 											{% is_attempt request q as attempted%}
 											{%if attempted%}
-											<a href="/tests/attempt/{{q.slug}}" class="btn  red radius-xl outline">View Results</a>
+											<a href="/tests/attempt/{{q.slug}}" target="_blank" class="btn  red radius-xl outline">View Results</a>
 											{% else %}
-											<a href="/tests/attempt/{{q.slug}}" class="btn  green radius-xl outline">Attempt Now</a>
+											<a href="/tests/attempt/{{q.slug}}" target="_blank" class="btn  green radius-xl outline">Attempt Now</a>
 										    {%endif%}
 										</div>
 									</div>

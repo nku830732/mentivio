@@ -1,3 +1,4 @@
+from copy import error
 from django.shortcuts import render, redirect, HttpResponse
 from django.http import request
 from course.models import Course, Video, Payment, UserCourse
@@ -22,10 +23,13 @@ def checkout(request, slug):
     try:
         user_course = UserCourse.objects.get(user=user, course=course)
         error = "You are Already Enrolled in this Course"
-        return redirect
+        
     except:
         pass
+    if error is not None:
+         return redirect('/dashboard/usercourses')
     amount = None
+
     if error is None:
         amount = int(
             (course.price - (course.price * course.discount * 0.01)) * 100)
@@ -90,7 +94,8 @@ def verifyPayment(request):
             payment.user_course = userCourse
             payment.save()
             messages.success(request, 'Payment Successful, You are enrolled')
-            return redirect('/dashboard/usercourses')
-
         except:
-            return HttpResponse("Invalid Payment Details")
+            error = "Invalid Payment Details"
+            # return HttpResponse("Invalid Payment Details")
+        if error is None:
+            return redirect('/dashboard/usercourses')

@@ -5,21 +5,20 @@
 
 
 <style>
+	
+		
+	}
 	* {
 		box-sizing: border-box;
 	}
 
 	.k {
 	  background-color: #80cbc4;
+	  font-family: unset;
 	}
 
 	/* #regForm {
-	  background-color: #ffffff;
-	  margin: 100px auto;
-	  font-family: Raleway;
-	  padding: 40px;
-	  width: 70%;
-	  min-width: 300px;
+
 	} */
 
 	h1 {
@@ -38,6 +37,7 @@
 	/* Hide all steps by default: */
 	.tab {
 		display: none;
+		
 	}
 
 	button {
@@ -48,6 +48,10 @@
 		font-size: 17px;
 		font-family: Raleway;
 		cursor: pointer;
+	}
+	.question{
+          border-left: brown 2px;
+		  background-color: ivory;
 	}
 
 	button:hover {
@@ -213,8 +217,9 @@
 								{% for q in quiz.quesition_set.all%}
 								<div class="tab">
 									<div class="form-group">
-										<label for="question">{{q.sr_no}}. {{q.quesition}}</label>
+										<label class="question" for="question">{{q.sr_no}}. {{q.quesition}}</label>
 									</div>
+									<hr>
 									<div class="form-check">
 										<div class="form-check">
 											<label class="container">{{q.option_1}}

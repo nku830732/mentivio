@@ -45,18 +45,58 @@
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
 	
 </head>
+<style>
+	.vertical-menu {
+	  width: 100%;
+	  height: 150px;
+	  overflow-y: auto;
+	}
+	
+	.vertical-menu a {
+	  background-color: #eee;
+	  color: black;
+	  display: block;
+	  padding: 5px;
+	  text-decoration: none;
+	}
+	
+	.vertical-menu a:hover {
+	  background-color: #ccc;
+	}
+	
+	.vertical-menu a.active {
+	  background-color: #5ca7b1;
+	  color: white;
+	}
+	::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+	</style>
 {% endblock %}
 {% block body %}
 <body id="bg">
 	<div class="page-wraper">
-	
-	   
 		<div class="page-content bg-white">
         <!-- inner page banner -->
         <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner3.jpg);">
             <div class="container">
                 <div class="page-banner-entry">
-                    <h1 class="text-white">All Exams</h1>
+                    <h1 class="text-white">All Exams:{% if cat is None %} {%else%}Category-{{cat}}{%endif%}</h1>
 				 </div>
             </div>
         </div>
@@ -77,15 +117,16 @@
 								</div>
 							</div>
 							<div class="widget widget_archive">
-                                <h5 class="widget-title style-1">Category</h5>
-                                <ul>
-									<li class="active"><a href="#">All Exams</a></li>
-
+                                <h5 class="widget-title style-1">Category-<b>{{cat}}</b> </h5>
+								<div class="vertical-menu">
 									{% for category in allcats %}
-                                    <li><a href="#">{{category.name}}</a></li>
+                                    <a href="/exam/?category={{category.name}}" >{{category.name}}</a>
                                     {% endfor %}
-                                </ul>
+									
+								  </div>
+								
                             </div>
+							
 							<div class="widget">
 								<a href="#"><img src='{% static "assets/images/adv/adv.jpg"%}' alt=""/></a>
 							</div>
