@@ -126,13 +126,12 @@
 									</div>
 									<div class="list">
 										<ul id='video_list' class="list-group overflow-y-scroll">
-
+                                           <a class="btn button-l green">Playlist</a>
 											{% is_enrolled request course as enrolled %}
-											
 											<div class="vertical-menu">
 												{% for v in videos %}
-												<a href="?lecture={{v.serial_number}}" {% if not enrolled and not v.is_preview %} text-muted no-preview {% endif %}
-												{% if v == video %} class="active" {% endif %}>{{v}}</a>
+												<a href="?lecture={{v.serial_number}}" 
+												{% if v == video %} class="active" {% endif %}>{{v}}{% if not enrolled and not v.is_preview %} {% endif %}</a>
 												{% endfor %}
 											</div>
 												

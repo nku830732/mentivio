@@ -25,7 +25,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
 	
 	<!-- PAGE TITLE HERE ============================================= -->
-	<title>Strategies</title>
+	<title>Tests</title>
 	
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,8 +49,50 @@
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
 	
 </head>
-{% endblock %}
+<style>
+	.vertical-menu {
+		width: 100%;
+		height: 100px;
+		overflow-y: auto;
+	}
 
+	.vertical-menu a {
+		background-color: #eee;
+		color: black;
+		display: block;
+		padding: 5px;
+		text-decoration: none;
+	}
+
+	.vertical-menu a:hover {
+		background-color: rgb(160, 160, 160);
+	}
+
+	.vertical-menu a.active {
+		background-color: #5ca7b1;
+		color: white;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+</style>
+{% endblock %}
 {% block body %}
 <div class="page-wraper">
 	
@@ -84,24 +126,25 @@
 									<ul class="media-post">
 										<li><a href="#"><i class="fa fa-calendar"></i>{{test.type}}</a></li>
                                         {% if test.is_preview is True %}
-										<li><a href="#"><i class="fa fa-user"></i><b>Free</b></a></li>
+										<li><a href="/tests/attempt/{{k.slug}}" target="_blank" class="btn button-sm green radius-xl">Free</a></li>
                                         {% else%}
                                         <li><a href="#"><i class="fa fa-user"></i><b>Enroll to attempt</b></a></li>
                                         {% endif %}
 									</ul>
-									<h5 class="post-title"><a href="strategies/{{strategie.slug}}">{{test.name}}</a></h5>
+									<h5 class="post-title"><a href="">{{test.name}}</a></h5>
 									<p>{{test.description |truncatechars:300}}</p>
                                     
-                                        <label for="inputState">Syllabus</label>
-                                        <select id="inputState" class="form-control">
-                                          <option selected>Syllabus</option> 
-                                          {% for i in test.quizprerequisite_set.all %}
-                                          <option >{{i.description}}</option>
-                                          {%endfor%}
-                                        </select>
+									<a class="btn button-l white"><b>Syllabus</b></a>
+                                       
+										<div class="vertical-menu">
+											
+											{% for i in test.quizprerequisite_set.all %}
+											<a href="#">{{i.description}}</a>
+											{% endfor %}
+										</div>
                                        
 									<div class="post-extra">
-										<a href="strategies/{{strategie.slug}}" class="btn">Attempt Now</a>
+										<a href="/tests/attempt/{{test.slug}}" target="_blank" class="btn">Attempt Now</a>
 										<a href="#" class="comments-bx"><i class="fa fa-comments-o">You can ask your doubts with our mentors</i></a>
 									</div>
 								</div>

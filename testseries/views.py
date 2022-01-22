@@ -107,12 +107,10 @@ def verifyPaymenttest(request):
 
         except:
             return HttpResponse("Invalid Payment Details")
-@login_required
-def tests(request, slug):
-    exam = Exam.objects.get(slug_exam=slug)
-    tests = Quiz.objects.filter(exam=exam)
+def tests(request):
+    tests = Quiz.objects.filter()
     context = {
-        'exam': exam,
+        
         'tests': tests
     }
     return render(request, "Eduguider/testlist.html", context)
