@@ -46,6 +46,49 @@
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
 	
 </head>
+<style>
+	.vertical-menu {
+		width: 100%;
+		height: 150px;
+		overflow-y: auto;
+	}
+
+	.vertical-menu a {
+		background-color: #eee;
+		color: black;
+		display: block;
+		padding: 5px;
+		text-decoration: none;
+	}
+
+	.vertical-menu a:hover {
+		background-color: #ccc;
+	}
+
+	.vertical-menu a.active {
+		background-color: #5ca7b1;
+		color: white;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+</style>
 {% endblock %}
 
 {% block body %}
@@ -73,6 +116,7 @@
 							<!-- blog start -->
 							<div class="recent-news blog-lg">
 								<div class="action-box blog-lg">
+									<h5>{{v}}</h5>
 									<div class="mx-auto">
 										<iframe id='player' class="mx-auto" width="100%" height="315"
 											src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0"
@@ -84,19 +128,14 @@
 										<ul id='video_list' class="list-group overflow-y-scroll">
 
 											{% is_enrolled request course as enrolled %}
-											{% for v in videos %}
-												<li
-												 class="list-group-item {% if v == video %} active-video {% endif %} ">
-												 <a class="
-												 
-												 {% if not enrolled and not v.is_preview %} text-muted no-preview {% endif %}
-												 {% if v == video %} active-video-link {% endif %}
-												 
-												 " href="?lecture={{v.serial_number}}">
-													 {{v}}
-													</a>
-												</li>
-											{% endfor %}
+											
+											<div class="vertical-menu">
+												{% for v in videos %}
+												<a href="?lecture={{v.serial_number}}" {% if not enrolled and not v.is_preview %} text-muted no-preview {% endif %}
+												{% if v == video %} class="active" {% endif %}>{{v}}</a>
+												{% endfor %}
+											</div>
+												
 										</ul>
 									      
 									</div>

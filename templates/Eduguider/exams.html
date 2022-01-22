@@ -1,6 +1,7 @@
 {% extends 'Eduguider/base.html'%}
 {%load static%}
 {% block head %}
+
 <head>
 
 	<!-- META ============================================= -->
@@ -9,37 +10,37 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 	<meta name="robots" content="" />
-	
+
 	<!-- DESCRIPTION -->
 	<meta name="description" content="Mentivio : Education HTML Template" />
-	
+
 	<!-- OG -->
 	<meta property="og:title" content="Mentivio : Education HTML Template" />
 	<meta property="og:description" content="Mentivio : Education HTML Template" />
 	<meta property="og:image" content="" />
 	<meta name="format-detection" content="telephone=no">
-	
+
 	<!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href='{% static "assets/images/favicon.ico"%}' type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href='{% static "assets/images/favicon.png"%}' />
-	
+
 	<!-- PAGE TITLE HERE ============================================= -->
 	<title>Select Your Exam</title>
-	
+
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
 
-	
+
+
 	<!-- All PLUGINS CSS ============================================= -->
 	<link rel="stylesheet" type="text/css" href='{% static "assets/css/assets.css"%}'>
-	
+
 	<!-- TYPOGRAPHY ============================================= -->
 	<link rel="stylesheet" type="text/css" href='{% static "assets/css/typography.css"%}'>
-	
+
 	<!-- SHORTCODES ============================================= -->
 	<link rel="stylesheet" type="text/css" href='{% static "assets/css/shortcodes/shortcodes.css"%}'>
-	
+
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href='{% static "assets/css/style.css"%}'>
 	<link class="skin" rel="stylesheet" type="text/css" href='{% static "assets/css/color/color-1.css"%}'>
@@ -47,171 +48,177 @@
 </head>
 <style>
 	.vertical-menu {
-	  width: 100%;
-	  height: 150px;
-	  overflow-y: auto;
+		width: 100%;
+		height: 150px;
+		overflow-y: auto;
 	}
-	
+
 	.vertical-menu a {
-	  background-color: #eee;
-	  color: black;
-	  display: block;
-	  padding: 5px;
-	  text-decoration: none;
+		background-color: #eee;
+		color: black;
+		display: block;
+		padding: 5px;
+		text-decoration: none;
 	}
-	
+
 	.vertical-menu a:hover {
-	  background-color: #ccc;
+		background-color: #ccc;
 	}
-	
+
 	.vertical-menu a.active {
-	  background-color: #5ca7b1;
-	  color: white;
+		background-color: #5ca7b1;
+		color: white;
 	}
+
 	::-webkit-scrollbar {
-  width: 10px;
-}
+		width: 10px;
+	}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-	</style>
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+</style>
 {% endblock %}
 {% block body %}
+
 <body id="bg">
 	<div class="page-wraper">
 		<div class="page-content bg-white">
-        <!-- inner page banner -->
-        <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner3.jpg);">
-            <div class="container">
-                <div class="page-banner-entry">
-                    <h1 class="text-white">All Exams:{% if cat is None %} {%else%}Category-{{cat}}{%endif%}</h1>
-				 </div>
-            </div>
-        </div>
-        <!-- inner page banner END -->
-		<div class="content-block">
-            <!-- About Us -->
-			<div class="section-area section-sp1">
-                <div class="container">
-					 <div class="row">
-						 
-						<div class="col-lg-3 col-md-4 col-sm-12 m-b30">
-							<div class="widget courses-search-bx placeani">
-								<div class="form-group">
-									<div class="input-group">
-										<label>Search Exams</label>
-										<input name="dzName" type="text" required class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="widget widget_archive">
-                                <h5 class="widget-title style-1">Category-<b>{{cat}}</b> </h5>
-								<div class="vertical-menu">
-									{% for category in allcats %}
-                                    <a href="/exam/?category={{category.name}}" >{{category.name}}</a>
-                                    {% endfor %}
-									
-								  </div>
-								
-                            </div>
-							
-							<div class="widget">
-								<a href="#"><img src='{% static "assets/images/adv/adv.jpg"%}' alt=""/></a>
-							</div>
-							<div class="widget recent-posts-entry widget-courses">
-                                <h5 class="widget-title style-1">What we Provide...</h5>
-                                <div class="widget-post-bx">
-                                    <div class="widget-post clearfix">
-                                        <!-- <div class="ttr-post-media"> <img src='{% static "assets/images/blog/recent-blog/pic1.jpg"%}' width="200" height="143" alt=""> </div> -->
-                                        <div class="ttr-post-info">
-                                            <div class="ttr-post-header">
-                                                <h6 class="post-title"><a href="#">Notes/ Tests/ Past Year Papers</a></h6>
-                                            </div>
-                                            <div class="ttr-post-meta">
-                                                <ul>
-                                                    
-                                                    <li class="review">Designed by top rankers</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="widget-post clearfix">
-                                        <!-- <div class="ttr-post-media"> <img src='{% static "assets/images/blog/recent-blog/pic3.jpg"%}' width="200" height="160" alt=""> </div> -->
-                                        <div class="ttr-post-info">
-                                            <div class="ttr-post-header">
-                                                <h6 class="post-title"><a href="#">Be in Touch with Us</a></h6>
-                                            </div>
-                                            <div class="ttr-post-meta">
-                                                <ul>
-                                                    <li class="price">
-														<h5 class="free">subscribe to our channel</h5>
-													</li>
-                                                    <li class="review">Feel free to contact us</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-						</div>
-						<div class="col-lg-9 col-md-8 col-sm-12">
-							<div class="row">
-								{% for exam in allexams %}
-								<div class="col-md-6 col-lg-4 col-sm-6 m-b30">
-									<div class="cours-bx">
-										
-										<div class="info-bx text-center">
-											<h5><a href="/exam/{{exam.slug_exam}}">{{exam.name}}</a></h5>
-											<span>{{exam.category}}</span><hr>
-											
-											<h8><a href="/exam/{{exam.slug_exam}}/notes"><b>Notes</b></a></h8>
-											<hr>
-											<h8><a href="/tests"><b>Test papers(Mock Test)</b></a></h8><hr>
-											<h8><a href="/courses"><b>Courses</b></a></h8>
+			<!-- inner page banner -->
+			<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner3.jpg);">
+				<div class="container">
+					<div class="page-banner-entry">
+						<h1 class="text-white">All Exams:{% if cat is None %} {%else%}Category-{{cat}}{%endif%}</h1>
+					</div>
+				</div>
+			</div>
+			<!-- inner page banner END -->
+			<div class="content-block">
+				<!-- About Us -->
+				<div class="section-area section-sp1">
+					<div class="container">
+						<div class="row">
+
+							<div class="col-lg-3 col-md-4 col-sm-12 m-b30">
+								<div class="widget courses-search-bx placeani">
+									<div class="form-group">
+										<div class="input-group">
+											<label>Search Exams</label>
+											<input name="dzName" id="tags" type="text" required class="form-control">
 										</div>
 									</div>
 								</div>
-								{%endfor%}
+								<div class="widget widget_archive">
+									<h5 class="widget-title style-1" class="active">{% if cat is None %} ALL
+										Exams{%else%}Category: {{cat}}{%endif%} </h5>
+									<div class="vertical-menu">
+										{% for category in allcats %}
+										<a href="/exam/?category={{category.name}}">{{category.name}}</a>
+										{% endfor %}
+									</div>
+
+								</div>
+
+								<div class="widget">
+									<a href="#"><img src='{% static "assets/images/adv/adv.jpg"%}' alt="" /></a>
+								</div>
+								<div class="widget recent-posts-entry widget-courses">
+									<h5 class="widget-title style-1">What we Provide...</h5>
+									<div class="widget-post-bx">
+										<div class="widget-post clearfix">
+											<!-- <div class="ttr-post-media"> <img src='{% static "assets/images/blog/recent-blog/pic1.jpg"%}' width="200" height="143" alt=""> </div> -->
+											<div class="ttr-post-info">
+												<div class="ttr-post-header">
+													<h6 class="post-title"><a href="#">Notes/ Tests/ Past Year
+															Papers</a></h6>
+												</div>
+												<div class="ttr-post-meta">
+													<ul>
+
+														<li class="review">Designed by top rankers</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="widget-post clearfix">
+											<!-- <div class="ttr-post-media"> <img src='{% static "assets/images/blog/recent-blog/pic3.jpg"%}' width="200" height="160" alt=""> </div> -->
+											<div class="ttr-post-info">
+												<div class="ttr-post-header">
+													<h6 class="post-title"><a href="#">Be in Touch with Us</a></h6>
+												</div>
+												<div class="ttr-post-meta">
+													<ul>
+														<li class="price">
+															<h5 class="free">subscribe to our channel</h5>
+														</li>
+														<li class="review">Feel free to contact us</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-9 col-md-8 col-sm-12">
+								<div class="row">
+									{% for exam in allexams %}
+									<div class="col-md-6 col-lg-4 col-sm-6 m-b30">
+										<div class="cours-bx">
+
+											<div class="info-bx text-center">
+												<h5><a href="/exam/{{exam.slug_exam}}">{{exam.name}}</a></h5>
+												<span>{{exam.category}}</span>
+												<hr>
+
+												<h8><a href="/exam/{{exam.slug_exam}}/notes"><b>Notes</b></a></h8>
+												<hr>
+												<h8><a href="/tests"><b>Test papers(Mock Test)</b></a></h8>
+												<hr>
+												<h8><a href="/courses"><b>Courses</b></a></h8>
+											</div>
+										</div>
+									</div>
+									{%endfor%}
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-            </div>
-        </div>
-    </div>
-    <!-- Content END-->
-    <!-- scroll top button -->
-    <button class="back-to-top fa fa-chevron-up" ></button>
-</div>
-  
-{% endblock %}
-{% block js%}
-<!-- External JavaScripts -->
-<script src='{% static "assets/js/jquery.min.js"%}'></script>
-<script src='{% static "assets/vendors/bootstrap/js/popper.min.js"%}'></script>
-<script src='{% static "assets/vendors/bootstrap/js/bootstrap.min.js"%}'></script>
-<script src='{% static "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}'></script>
-<script src='{% static "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}'></script>
-<script src='{% static "assets/vendors/magnific-popup/magnific-popup.js"%}'></script>
-<script src='{% static "assets/vendors/counter/waypoints-min.js"%}'></script>
-<script src='{% static "assets/vendors/counter/counterup.min.js"%}'></script>
-<script src='{% static "assets/vendors/imagesloaded/imagesloaded.js"%}'></script>
-<script src='{% static "assets/vendors/masonry/masonry.js"%}'></script>
-<script src='{% static "assets/vendors/masonry/filter.js"%}'></script>
-<script src='{% static "assets/vendors/owl-carousel/owl.carousel.js"%}'></script>
-<script src='{% static "assets/js/functions.js"%}'></script>
-<script src='{% static "assets/js/contact.js"%}'></script>
+			</div>
+		</div>
+		<!-- Content END-->
+		<!-- scroll top button -->
+		<button class="back-to-top fa fa-chevron-up"></button>
+	</div>
 
-{% endblock %}
+	{% endblock %}
+	{% block js%}
+	
+	<!-- External JavaScripts -->
+	<script src='{% static "assets/js/jquery.min.js"%}'></script>
+	<script src='{% static "assets/vendors/bootstrap/js/popper.min.js"%}'></script>
+	<script src='{% static "assets/vendors/bootstrap/js/bootstrap.min.js"%}'></script>
+	<script src='{% static "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}'></script>
+	<script src='{% static "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}'></script>
+	<script src='{% static "assets/vendors/magnific-popup/magnific-popup.js"%}'></script>
+	<script src='{% static "assets/vendors/counter/waypoints-min.js"%}'></script>
+	<script src='{% static "assets/vendors/counter/counterup.min.js"%}'></script>
+	<script src='{% static "assets/vendors/imagesloaded/imagesloaded.js"%}'></script>
+	<script src='{% static "assets/vendors/masonry/masonry.js"%}'></script>
+	<script src='{% static "assets/vendors/masonry/filter.js"%}'></script>
+	<script src='{% static "assets/vendors/owl-carousel/owl.carousel.js"%}'></script>
+	<script src='{% static "assets/js/functions.js"%}'></script>
+	<script src='{% static "assets/js/contact.js"%}'></script>
+
+	{% endblock %}
