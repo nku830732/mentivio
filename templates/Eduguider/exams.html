@@ -120,11 +120,13 @@
 									</div>
 								</div>
 								<div class="widget widget_archive">
-									<h5 class="widget-title style-1" class="active">{% if cat is None %} ALL
-										Exams{%else%}Category: {{cat}}{%endif%} </h5>
+									
+									<a class="btn button-l green" >Category
+										</a>
 									<div class="vertical-menu">
+									    <a href="/exam/"{%if ex is None%} class="active" {% endif %}>All Exams</a>
 										{% for category in allcats %}
-										<a href="/exam/?category={{category.name}}">{{category.name}}</a>
+										<a href="/exam/?category={{category.name}}"{% if ex == category %} class="active" {% endif %}>{{category.name}}</a>
 										{% endfor %}
 									</div>
 

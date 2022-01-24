@@ -19,7 +19,7 @@ def exams(request):
        context = {
               'allexams': allexams,
                'allcats': allcats,
-               'cat':cat
+               'ex':ex
        }
        return render(request,'Eduguider/exams.html', context)
 def examdetails(request, slug_exam):

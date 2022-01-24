@@ -131,7 +131,7 @@
 											<div class="vertical-menu">
 												{% for v in videos %}
 												<a href="?lecture={{v.serial_number}}" 
-												{% if v == video %} class="active" {% endif %}>{{v}}{% if not enrolled and not v.is_preview %} {% endif %}</a>
+												{% if v == video %} class="active" {% endif %}>{% if not enrolled and not v.is_preview %}<i class="fa fa-lock"></i>{% endif %} {{v}}</a>
 												{% endfor %}
 											</div>
 												
