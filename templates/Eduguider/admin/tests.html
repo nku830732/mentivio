@@ -2,9 +2,6 @@
 {% load course_custom_tags %}
 {% load static %}
 {% block head %}
-
-
-
 <head>
     <meta name="viewport" content="width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
@@ -70,9 +67,10 @@
 							{% for recommendedcourse in recommendedcourses %}
 							{% is_enrolled_test request recommendedcourse as enrolled %}
 							{% if enrolled %}
-						
+							
+						    {% for k in recommendedcourse.quiz_set.all %}	
 							<div class="card-courses-list admin-courses">
-								{% for k in recommendedcourse.quiz_set.all %}	
+								
 								<div class="card-courses-full-dec">
 									<div class="card-courses-title">
 										<h4>{{k.name}}</h4>
@@ -110,8 +108,11 @@
 									</div>
 
 								</div>
-								{% endfor %}
-							</div>'
+								
+							</div>
+							{% endfor %}
+							{% else %}
+							
 							{%endif%}
 							{% endfor %}
 						</div>

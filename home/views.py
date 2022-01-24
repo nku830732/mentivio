@@ -56,8 +56,6 @@ def handleSignup(request):
     else:
        return render(request,'account/signup.html')
 def handleLogin(request):  
-  action = request.GET.get('next')  
-  print(action)  
   if request.user.is_authenticated is False:              
     if request.method == "POST":
         loginusername = request.POST['loginusername']

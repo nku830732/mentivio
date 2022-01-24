@@ -9,7 +9,6 @@ from testseries.models import QuizCourse, Quiz, Quesition, Category, UserRespons
 from django.views.decorators.csrf import csrf_exempt
 from EduGuider.settings import *
 from time import time
-
 import razorpay
 client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
 # Create your views here.
@@ -110,7 +109,6 @@ def verifyPaymenttest(request):
 def tests(request):
     tests = Quiz.objects.filter()
     context = {
-        
         'tests': tests
     }
     return render(request, "Eduguider/testlist.html", context)
