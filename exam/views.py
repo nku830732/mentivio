@@ -4,7 +4,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.http import request
 # from blog.views import strategies
 from exam.models import Exam,  Category
-from course.models import Guider,Subject,Chapter,Quesions,Topic
+from course.models import Guider,Subject,Chapter,Materials
 from django.contrib import messages
 # Create your views here.
 def exams(request):
@@ -24,10 +24,7 @@ def exams(request):
               'allexams': allexams,
                'allcats': allcats,
                
-       }
-       
-        
-       
+       }      
        return render(request,'Eduguider/exams.html', context)
 def examdetails(request, slug_exam):
        exam = Exam.objects.filter(slug_exam=slug_exam).first() 
@@ -36,8 +33,12 @@ def examdetails(request, slug_exam):
        return render(request, 'Eduguider/courses-details.html', context)
 def notes(request, slug_exam):
        exam = Exam.objects.filter(slug_exam=slug_exam).first()
-       subjects = Subject.objects.filter(exam_name=exam)                        
-       context = {'exam':exam,
+       subjects = Subject.objects.filter(exam_name=exam) 
+       material=  Materials.objects.filter(exam_name=exam)                     
+       context = {
+              'exam':exam,
+              'subjects':subjects,
+              'material':material
        }     
        return render(request, 'Eduguider/notesList.html', context)
 def chapter(request, slug_chapter):

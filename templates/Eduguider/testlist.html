@@ -3,7 +3,6 @@
 {% block head %}
 
 <head>
-
 	<!-- META ============================================= -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -134,10 +133,8 @@
 									<h5 class="post-title"><a href="">{{test.name}}</a></h5>
 									<p>{{test.description |truncatechars:300}}</p>
                                     
-									<a class="btn button-l white"><b>Syllabus</b></a>
-                                       
+									<a class="btn button-l green"><b>Syllabus</b></a>
 										<div class="vertical-menu">
-											
 											{% for i in test.quizprerequisite_set.all %}
 											<a href="#">{{i.description}}</a>
 											{% endfor %}

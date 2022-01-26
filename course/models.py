@@ -4,7 +4,6 @@ from exam.models import Exam,Category
 from home.models import Educator
 from django.contrib.auth.models import User
 
-# Create your models here.
 class Guider(models.Model):
     name = models.CharField(max_length=20,default="")
     Image = models.ImageField(upload_to="media/guider/",default="")
@@ -21,6 +20,7 @@ class Subject(models.Model):
        exam_name = models.ForeignKey(Exam, on_delete=models.CASCADE, default="", blank=True)
        standard = models.IntegerField(null=True)
        slug_subject = models.CharField(max_length = 50,default="")
+       date =models.DateField(auto_now_add=True)
        class Meta:
         ordering = ['name','exam_name']
        def __str__(self):
@@ -103,7 +103,6 @@ class DoubtSolution(models.Model):
 class CourseProperty(models.Model):
     description  = models.CharField(max_length = 100 , null = False)
     course = models.ForeignKey(Course , null = False , on_delete=models.CASCADE)
-
     class Meta : 
         abstract = True
 class CourseTag(CourseProperty):

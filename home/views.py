@@ -3,7 +3,7 @@ from django.http import request
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from home.models import Contact, Newslatter_Subscriber
+from home.models import Contact
 from dashboard.models import UserProfile
 # Create your views here.
 def home(request): 

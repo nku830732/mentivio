@@ -24,7 +24,7 @@ class Common_opportunitieAdmin(admin.ModelAdmin):
     list_display =('name','suggested_by','exam_to_qualify')
 class Career_Oppotunitie_CommentAdmin(admin.ModelAdmin):
     list_display = ('sr_no','user', 'time')
-    list_filter = ('sr_no','time')
+    list_filter = ['time']
     inlines = [Oppotunitie_Comment_ReplyAdmin]
 class strategyQuesitionAdmin(admin.ModelAdmin):
     inlines = [strategyQuesitionReplyAdmin]
